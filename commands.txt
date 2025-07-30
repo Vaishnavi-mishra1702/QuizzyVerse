@@ -1,0 +1,6 @@
+npm run dev
+python3 app.py
+redis-server
+celery -A app.celery_app worker --beat --loglevel=info
+MailHog
+source .env/bin/activate
