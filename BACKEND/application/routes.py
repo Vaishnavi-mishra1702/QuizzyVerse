@@ -492,7 +492,29 @@ def get_quiz_questions(quiz_id):
     } for q in questions]
     return jsonify(result), 200
 
+@app.route('/admin/quizzes', methods=['GET'])
+@role_required('admin')  
+def get_all_quizzes():
+    try:
+        quizzes = Quiz.query.all()
+        result = []
 
+        for quiz in quizzes:
+            result.append({
+                'id': quiz.id,
+                'chapter': quiz.chapter.name if quiz.chapter else None,
+                'subject': quiz.chapter.subject.name if quiz.chapter and quiz.chapter.subject else None,
+                'date_of_quiz': str(quiz.date_of_quiz),
+                'time_duration': quiz.time_duration,
+                'remarks': quiz.remarks,
+                'created_at': quiz.created_at.strftime("%Y-%m-%d %H:%M:%S")
+            })
+
+        return jsonify(result), 200
+
+    except Exception as e:
+        print("Error in /admin/quizzes:", e)
+        return jsonify({'error': 'Failed to fetch quizzes'}), 500
 # @app.route("/user/scores", methods=["GET"])
 # @role_required('user')
 # def user_scores():
