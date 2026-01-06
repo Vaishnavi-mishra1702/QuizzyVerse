@@ -1,120 +1,93 @@
-Full Stack Exam Preparation Platform
-🧠 Project Overview
+# Quizziverse 🎯
+### Full Stack Exam Preparation Platform
 
-Quizziverse is a full-stack, multi-user exam preparation platform designed to simulate real exam environments across multiple subjects and chapters.
-The application supports role-based access, automated evaluation, performance analytics, and background job processing, making it scalable and suitable for real-world educational use cases.
+## 🧠 Overview
+**Quizziverse** is a full-stack, multi-user exam preparation platform designed to simulate real exam environments across multiple subjects and chapters.  
+The platform focuses on **role-based access**, **automated evaluation**, **performance analytics**, and **asynchronous background processing**, making it suitable for real-world educational use cases.
 
-This project focuses on clean backend architecture, data modeling, and asynchronous task handling.
+This project emphasizes clean backend architecture, proper data modeling, and scalable system design.
 
-👥 User Roles
-🔑 Admin (Quiz Master)
+---
 
-Root-level access (single admin)
+## 👥 User Roles
 
-Create & manage subjects and chapters
+### 🔑 Admin (Quiz Master)
+- Root-level access (single admin)
+- Create and manage subjects and chapters
+- Create quizzes with MCQ-based questions
+- Schedule quizzes with time limits
+- View user performance analytics and summary charts
+- Trigger data exports (CSV)
 
-Create quizzes with MCQ questions
+### 👤 User
+- Register and log in securely
+- Browse available subjects and chapters
+- Attempt quizzes with a timer
+- View previous attempts and scores
+- Receive reminders and activity reports
 
-Schedule quizzes with time limits
+---
 
-View user performance analytics & summary charts
+## ⚙️ Key Features
+- 🔐 Role-Based Access Control (RBAC)
+- ⏱️ Timed quizzes with automatic evaluation
+- 📊 Analytics dashboards for performance tracking
+- 🗂️ Relational data modeling  
+  *(Subjects → Chapters → Quizzes → Questions → Scores)*
+- ⚡ Asynchronous background jobs using **Redis & Celery**:
+  - Daily reminders
+  - Monthly activity reports
+  - CSV exports
+- 🚀 Caching to improve API performance
+- 📱 Responsive UI using Bootstrap
 
-Trigger data exports (CSV)
+---
 
-👤 User
+## 🛠️ Tech Stack
 
-Register & login securely
+### Backend
+- Flask (REST APIs)
+- SQLAlchemy (ORM)
+- SQLite (Database)
+- Redis (Caching & message broker)
+- Celery (Async & scheduled jobs)
 
-Browse subjects and chapters
+### Frontend
+- Vue.js
+- HTML, CSS
+- Bootstrap
 
-Attempt quizzes with a timer
+---
 
-View past attempts and scores
+## 🗃️ Database Design (High-Level)
+- User (Admin / Student)
+- Subject
+- Chapter
+- Quiz
+- Question
+- Score
 
-Receive reminders and reports
+> All database tables are created programmatically. No manual database creation is used.
 
-⚙️ Key Features
+---
 
-🔐 Role-Based Access Control (RBAC) for Admin and Users
+## 🧩 Architecture Highlights
+- MVC-based backend structure
+- Separation of concerns between API, background jobs, and UI
+- Stateless APIs with validation
+- Extensible design for adding new subjects and reports
 
-⏱️ Timed quizzes with automatic evaluation
+---
 
-📊 Analytics dashboards for performance tracking
+## 🚀 Future Enhancements
+- Cloud deployment
+- Advanced analytics using ML
+- Question difficulty analysis
+- Migration to scalable databases (PostgreSQL)
 
-🗂️ Relational data modeling (Subjects → Chapters → Quizzes → Questions → Scores)
+---
 
-⚡ Asynchronous background jobs using Redis & Celery:
-
-Daily quiz reminders
-
-Monthly activity reports
-
-CSV export of quiz results
-
-🚀 Caching strategies to improve API performance
-
-📱 Responsive UI using Bootstrap
-
-🛠️ Tech Stack
-
-Backend
-
-Flask (REST APIs)
-
-SQLAlchemy (ORM)
-
-SQLite (Database)
-
-Redis (Caching & message broker)
-
-Celery (Async & scheduled jobs)
-
-Frontend
-
-Vue.js
-
-HTML, CSS
-
-Bootstrap
-
-🗃️ Database Design (High Level)
-
-User (Admin / Student)
-
-Subject
-
-Chapter
-
-Quiz
-
-Question
-
-Score
-
-All database tables are created programmatically (no manual DB creation).
-
-🧩 Architecture Highlights
-
-MVC-based backend structure
-
-Separation of concerns between API, background jobs, and UI
-
-Stateless APIs with structured validation
-
-Extensible design for adding new subjects and reports
-
-🚀 Future Enhancements
-
-Deployment on cloud infrastructure
-
-Enhanced analytics with ML-based performance insights
-
-Question difficulty analysis
-
-Scalable database migration (PostgreSQL)
-
-👩‍💻 Author
-
-Vaishnavi Mishra
-BS in Data Science & Applications, IIT Madras
+## 👩‍💻 Author
+**Vaishnavi Mishra**  
+BS in Data Science & Applications, IIT Madras  
 GitHub: https://github.com/Vaishnavi-0222
